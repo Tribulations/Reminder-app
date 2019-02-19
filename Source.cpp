@@ -18,11 +18,25 @@ class Company
 			mName = name;
 		}
 
+		void printInfo()
+		{
+			cout << mName << " ";
+		}
+
+		bool getIsAgDone()
+		{
+			return mIsAgDone;
+		}
+		bool getIsMomsDone()
+		{
+			return mIsMomsDone;
+		}
+
 	private:
 		string mName;
 
-		bool mAgDone = false;
-		bool mMomsDone = false;
+		bool mIsAgDone = false;
+		bool mIsMomsDone = false;
 
 };
 
@@ -53,9 +67,15 @@ int main()
 		//print compnay list
 		else if (choice == 2)
 		{
+			cout << "Company Name" << "Moms" << "AG" << endl << endl;
+
 			for (int i = 0; i < numberOfCompanies; i++)
 			{
-				cout << companies[i].getName() << endl;
+				companies[i].printInfo();
+				if (companies[i].getIsAgDone) // if ag is marked as done
+				{
+					cout << "X" << endl;
+				}
 			}
 		}
 		//print remaining companies
